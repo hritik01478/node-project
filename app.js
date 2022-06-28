@@ -28,16 +28,6 @@ app.get('/', (req, res) => {
     res.redirect('/blogs');
 });
 
-// app.get('/', (req, res) => {
-//     const blogs = [
-//         { title: 'Hritik: wahi ladka jo urmila se ghumta tha', snippet: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ex ab hic! Aliquam ab tempora in adipisci eos cumque, error odit laudantium sed obcaecati. Quam alias, vel perferendis nisi, dignissimos quod illum odit esse dolorem et impedit omnis. Eos, aliquam?' },
-//         { title: 'Lazy Avnit', snippet: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ex ab hic! Aliquam ab tempora in adipisci eos cumque, error odit laudantium sed obcaecati. Quam alias, vel perferendis nisi, dignissimos quod illum odit esse dolorem et impedit omnis. Eos, aliquam?' },
-//         { title: 'Brijesh the Ashiq', snippet: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ex ab hic! Aliquam ab tempora in adipisci eos cumque, error odit laudantium sed obcaecati. Quam alias, vel perferendis nisi, dignissimos quod illum odit esse dolorem et impedit omnis. Eos, aliquam?' }
-//     ]
-//     res.render('index', { title: "Home", blogs });
-// });
-
-
 app.get('/about', (req, res) => {
     res.render('about', { title: "About" });
 });
