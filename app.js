@@ -15,6 +15,7 @@ const app = express();
 
 //register view engine
 app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
 
 //middleware and static files
 app.use((morgan('dev')));
