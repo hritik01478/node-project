@@ -1,9 +1,22 @@
-const { render } = require('ejs');
-const express = require('express');
-const { default: mongoose } = require('mongoose');
-const morgan = require('morgan');
-const Blog = require('./models/blog');
-const blogRoutes = require('./routes/blogRoutes');
+// const { render } = require('ejs');
+// const express = require('express');
+// const { default: mongoose } = require('mongoose');
+// const morgan = require('morgan');
+// const Blog = require('./models/blog');
+// const blogRoutes = require('./routes/blogRoutes');
+
+// app.js
+
+import express from 'express';
+import mongoose from 'mongoose';
+import morgan from 'morgan';
+import { render } from 'ejs';
+import Blog from './models/blog.js';
+import blogRoutes from './routes/blogRoutes.js';
+import path from 'path';
+
+// Your Express app setup and configuration code goes here
+
 
 //connect to  mongodb
 const dbURI = 'mongodb+srv://hritik:hritik01478@cluster0.huy2guw.mongodb.net/?retryWrites=true&w=majority';
@@ -15,7 +28,8 @@ const app = express();
 
 //register view engine
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
+// app.set('views', __dirname + '/views');
+// app.set('views', path.join(__dirname, 'views'));
 
 //middleware and static files
 app.use((morgan('dev')));

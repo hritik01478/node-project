@@ -1,8 +1,9 @@
-const Blog = require('../models/blog');
+// const Blog = require('../models/blog');
+import Blog from '../models/blog.js';
 
 // blog_details , blog_index, blog_create_get, blog_create_post, blog_delete
 
-const blog_index = (req, res) => {
+export const blog_index = (req, res) => {
     Blog.find().sort({ createdAt: -1 })
         .then((result) => {
             res.render('blogs/index', { title: 'All Blogs', blogs: result })
@@ -10,7 +11,7 @@ const blog_index = (req, res) => {
         .catch(err => console.log(err));
 }
 
-const blog_details = (req, res) => {
+export const blog_details = (req, res) => {
     const id = req.params.id;
     Blog.findById(id)
         .then((result) => {
@@ -21,11 +22,11 @@ const blog_details = (req, res) => {
         });
 }
 
-const blog_create_get = (req, res) => {
+export const blog_create_get = (req, res) => {
     res.render('blogs/create', { title: "Create a new blog" })
 }
 
-const blog_create_post = (req, res) => {
+export const blog_create_post = (req, res) => {
     const blog = new Blog(req.body);
     blog.save()
         .then((result) => {
@@ -34,7 +35,7 @@ const blog_create_post = (req, res) => {
         .catch(err => console.log(err));
 }
 
-const blog_delete = (req, res) => {
+export const blog_delete = (req, res) => {
     const id = req.params.id;
 
     Blog.findByIdAndDelete(id)
@@ -44,6 +45,6 @@ const blog_delete = (req, res) => {
         .catch(err => console.log(err))
 }
 
-module.exports = {
-    blog_index, blog_details, blog_create_get, blog_create_post, blog_delete
-}
+// module.exports = {
+//     blog_index, blog_details, blog_create_get, blog_create_post, blog_delete
+// }
